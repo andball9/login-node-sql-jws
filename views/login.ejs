@@ -1,42 +1,55 @@
 <!doctype html>
 <html lang="es">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.101.0">
-    <title>Login</title>  
+    <title>Login</title>
 
-    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-<link href="css/bootstrap.min.css" rel="stylesheet">
-
-    
     <!-- Custom styles for this template -->
     <link href="css/signin.css" rel="stylesheet">
-  </head>
-  <body class="text-center">
-    
-<main class="form-signin w-100 m-auto">
-  <form id="fromLogin" action="/login" method="POST">
-    <h1 class="h3 mb-3 fw-normal">Inicio de sesion</h1>
+</head>
 
-    <div class="form-floating">
-      <input type="text" class="form-control" id="user" name="user" placeholder="user">
-      <label for="user">User</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" class="form-control" id="pass" name="pass" placeholder="Password">
-      <label for="pass">Password</label>
-    </div>
+<body class="text-center">
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
-  </form>
-  <a type="button" class="w-100 btn btn-lg">Registrarse</a>
-</main>
+    <main class="form-signin w-100 m-auto">
+        <form id="fromLogin" action="/login" method="POST">
+            <h1 class="h3 mb-3 fw-normal">Inicio de sesion</h1>
 
+            <div class="form-floating">
+                <input type="text" class="form-control" id="Usuario" name="Usuario" placeholder="user">
+                <label for="Usuario">User</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="Pass" name="Pass" placeholder="Password">
+                <label for="Pass">Password</label>
+            </div>
 
-    
-  </body>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+        </form>
+        <a href="/registro" type="button" class="w-100 btn btn-lg">Registrarse</a>
+    </main>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <% if(alert) { %>
+        <script>
+            Swal.fire({
+                type: '<%= type %>',
+                title: '<%= alertTitle %>',
+                text: '<%= alertMessage %>',
+                icon: '<%= alertIcon %>',
+                showConfirmButton: '<%= showConfirmButton %>',
+                timer: '<%= timer %>'
+            }).then(()=>{
+                window.location = '/<%= ruta %>'
+            })
+        </script>
+    <% } %>
+
+</body>
 </html>
